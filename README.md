@@ -1,6 +1,6 @@
 # Abraxas
 
-Prueba tecnica: API datos georeferenciados.
+Test: API with spatial database.
 ## Getting Started
 
 These instructions will cover usage information and for the docker container 
@@ -16,52 +16,57 @@ In order to run this container you'll need docker installed.
 
 ### Usage
 
-#### Container Parameters
+#### Instructions to run 
+Once you've **cloned the git repo**, everything will happen in your terminal.
+Make sure docker-compose file is here, you can list with command ```ls```
+**Open your command line in the directory of this file**
+Then:
 
-List the different parameters available to your container
+    docker-compose build
+Once the volume is build:
 
-```shell
-docker run give.example.org/of/your/container:v0.2.1 parameters
-```
+    docker-compose up
+If you get an error with ```web_1``` service, don't worry, we will work in another shell with Django
+**Open** another window shell  and we will kill Django from there, so we can debug better.
+In the **second shell** window type:
 
-One example per permutation 
+    docker rm -f abraxas_web_1
+Then, we will apply the migrations to the file:
 
-```shell
-docker run give.example.org/of/your/container:v0.2.1
-```
+    docker-compose run --rm --service-ports web python manage.py makemigrations
+We will apply those migrations to the database:
 
-Show how to get a shell started in your container too
+    docker-compose run --rm --service-ports web python manage.py migrate
+And now, we will run Django
 
-```shell
-docker run give.example.org/of/your/container:v0.2.1 bash
-```
+    docker-compose run --rm --service-ports web
 
-#### Environment Variables
 
-* `VARIABLE_ONE` - A Description
-* `ANOTHER_VAR` - More Description
-* `YOU_GET_THE_IDEA` - And another
+#### Useful Links
+The base URL will be:
+`localhost:8000/api/v1`
+##### Then you can add the following path:
+If you want to list the datasets:
+* `/datasets` 
 
-#### Volumes
+If you want to list the rows in the dataset:
+* `/rows`
 
-* `/your/file/location` - File location
+If you want to POST and GET in just one path
+* `/all_data`
 
-#### Useful File Locations
-
-* `/some/special/script.sh` - List special scripts
-  
-* `/magic/dir` - And also directories
-
+All of this links you can access in the base URL, hope you enjoy it.
 ## Built With
 
-* List the software v0.1.3
-* And the version numbers v2.0.0
-* That are in this container v0.3.2
+* Django v3.1.3
+* Django REST Framework v3.12.1
+* Postgres
+* Postgis
 
 
 ## Authors
 
-* **Hugo Castillo** - *Initial work* - [Abraxcsv](https://github.com/abraxcsv)
+* **Hugo Castillo** - [Abraxcsv](https://github.com/abraxcsv)
 
 ## License
 
