@@ -29,7 +29,7 @@
                     <form action="{% url "Upload" %}" method="POST" enctype="multipart/form-data" class="form-horizontal"> 
                         <label class="file w-100">
                             {% csrf_token %}
-                            <input type="btn" name="csv_file" id="csv_file" required="True" id="file">
+                            <input type="file" name="csv_file" id="csv_file" required="True" id="file">
                             <span class="btn w-100">Choose file</span>
                             </label>
                         <div class="w-100 file-name__wrapper">
