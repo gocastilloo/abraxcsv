@@ -19,7 +19,9 @@ In order to run this container you'll need docker installed.
 #### Instructions to run 
 Once you've **cloned the git repo**, everything will happen in your terminal.
 Make sure docker-compose file is here, you can list with command ```ls```
+
 **Open your command line in the directory of this file**
+
 Then:
 
     docker-compose build
