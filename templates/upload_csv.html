@@ -1,0 +1,62 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abraxas</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+</head>
+    
+
+<body>
+    {% if messages %}
+<ul class="messages btn w-100 ">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+    <div class="background">
+        <div class="inner-container">
+            <div class="left">
+                <div class="left-wrapper">
+
+                    <form action="{% url "Upload" %}" method="POST" enctype="multipart/form-data" class="form-horizontal"> 
+                        <label class="file w-100">
+                            {% csrf_token %}
+                            <input type="btn" name="csv_file" id="csv_file" required="True" id="file">
+                            <span class="btn w-100">Choose file</span>
+                            </label>
+                        <div class="w-100 file-name__wrapper">
+                            <span class="file-name">File .csv</span>
+                        </div>
+                        <div class="w-100 upload-wrapper">
+                            <button class="btn">Upload</button>
+                            <span class="file-name">then</span>
+                            <input class="btn w-100" type="button" value="Load Dataset" onclick="location.href='{% url 'load_data' %}'" />
+                            <span class="file-name">or</span>
+                            <input class="btn w-100" type="button" value="Load rows" onclick="location.href='{% url 'load_row' %}'" />
+                            <span class="file-name">or</span>
+                            <input class="btn w-100" type="button" value="Upload and Load" onclick="location.href='{% url 'all_data' %}'" />
+
+                        </div>
+                        
+                    </form>  
+                </div>
+            </div>
+            <div class="right">
+                <div class="right-img">
+                    {% load static %}
+                    <img src="{% static 'abraxas.jpeg'%}" class="right-img" alt="upload">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

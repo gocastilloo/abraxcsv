@@ -1,0 +1,116 @@
+:root{
+    --main:#F2AB29;
+    --second:#303644;
+    --radius:10px;
+
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+input::placeholder{
+    font-size: 2.5rem;
+    color: var(--second);
+}
+.w-100{
+    width: 100%;
+    text-align: center;
+}
+.background{
+    background-color: rgb(246, 244, 246);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inner-container{
+    width: 80%;
+    height: 80%;
+    box-shadow: 0px 8px 4px rgb(0,0,0,.2);
+    display: flex;
+    flex-wrap: nowrap;
+    border-radius: var(--radius);
+    position: relative;
+}
+.left{
+    width: calc(50% - 400px);
+    background-color: white;
+    padding: 200px;
+    border-top-left-radius: var(--radius);
+    border-bottom-left-radius: var(--radius);
+    display: flex;
+}
+
+.left-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.right{
+    width: 50%;
+    background-color:var(--second);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: var(--radius);
+    border-bottom-right-radius: var(--radius);
+}
+.right-img{
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 400px;
+    height: 400px;
+}
+.file-name{
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Aldrich';
+}
+.file-name__wrapper{
+    margin: 20px 0 40px 0;
+}
+.btn{
+    width: 100%;
+    background-color: var(--main);
+    border-radius: var(--radius);
+    font-size: 2.5rem;
+    padding: 10px;
+    border: none;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    font-family: 'Poppins';
+    color:var(--second);
+    margin-right: auto;
+    
+}
+button input{
+    transition: .4s;
+}
+button:active{
+    transform: translateY(-4px);
+}
+.upload-wrapper{
+    position: relative;
+}
+.upload-wrapper img{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 40px;
+}
+.file input{
+    display: none;
+}

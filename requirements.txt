@@ -1,0 +1,19 @@
+#Django
+Django == 3.1.3
+wheel
+
+#Database
+psycopg2-binary == 2.8.6
+gdal==2.3
+
+#Django REST Framework
+djangorestframework == 3.12.1
+django-filter == 2.4.0
+
+#Utils
+drf-extra-fields
+numpy == 1.19.4
+djangorestframework-csv
+
+#Testing
+pytest == 6.1.2
