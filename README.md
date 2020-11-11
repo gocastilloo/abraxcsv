@@ -32,7 +32,7 @@ If you get an error with ```web_1``` service, don't worry, we will work in anoth
 **Open** another window shell  and we will kill Django from there, so we can debug better.
 In the **second shell** window type:
 
-    docker rm -f abraxas_web_1
+    docker rm -f abraxcsv_web_1
 Then, we will apply the migrations to the file:
 
     docker-compose run --rm --service-ports web python manage.py makemigrations
